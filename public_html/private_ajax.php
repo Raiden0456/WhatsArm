@@ -29,7 +29,7 @@ if(isset($_POST['count'])){
     //запрос, с помощью которого определяется, кто может видеть отправленные сообщения в приватном чате
     $a = dbq("SELECT * FROM `private` WHERE (`reciever` =  '".f6($_POST['whereto'])."' AND `login` = '".f6($_SESSION['username'])."') OR (`reciever` =  '".f6($_SESSION['username'])."' AND `login` = '".f6($_POST['whereto'])."') LIMIT ".($num-$loadnum).", ".$loadnum);
 } 
-//
+//сравнивание unix timestamp в момент когда пользователь находился на сайте с обычным unix time для определения разницы в секундах и установлению корректоного статуса
 $b  = dbq("SELECT `login`, `datechat`, UNIX_TIMESTAMP(datechat) FROM `users`");
 foreach ($a as &$message){
     foreach ($b as $user){
