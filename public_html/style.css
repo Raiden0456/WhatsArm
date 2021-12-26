@@ -1,0 +1,73 @@
+        #texto{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #smile{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        input {
+            border-radius: 25px;
+            background-color: rgb(82, 144, 206);
+            color: white;
+            outline-width: 2px;
+            outline-style: solid;
+            outline-color: rgb(31, 97, 164);
+            width: 20%;
+            padding: 10px;
+            margin: 5px;
+        }
+        #message{
+            border-radius: 25px;
+            background-color: rgb(82, 144, 206);
+            color: white;
+            outline-width: 2px;
+            outline-style: solid;
+            outline-color: rgb(31, 97, 164);
+            width: 50%;
+            padding: 10px;
+            margin: 5px;
+        }
+        /*ПРИДУМАТЬ СПОСОБ ПЕРЕДВИНУТЬ КНОПКУ*/
+        
+        #ok{
+            width: 10%;
+        }
+        a{
+            text-decoration: none;
+            color:white;
+        }
+        a:hover{
+            border-radius: 25px;
+            background-color: rgb(82, 144, 206);
+            outline-width: 2px;
+            outline-style: solid;
+            outline-color: rgb(31, 97, 164);
+        }
+        a:active{
+            border-radius: 25px;
+            background-color: gray;
+            outline-width: 2px;
+            outline-style: solid;
+            outline-color: rgb(31, 97, 164);
+        }
+        #exit{
+            width: 10%;
+        }
+        p {
+            text-align: center;
+        }
+        body{
+            background-color: rgb(32, 34, 38);
+            color: white;
+        }
+        #out{
+            height: 600px;
+            width: 50%;
+            overflow: auto;
+            padding: 10px;
+        }
