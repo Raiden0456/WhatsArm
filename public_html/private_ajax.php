@@ -3,11 +3,11 @@ header('Content-type: text/html; charset=utf-8');
 session_start();
 include('chatcore.php');
 
-
+//удаление сообщения
 if(isset($_POST['deletemess']) and $_POST['deletemess']!=''){
     dbq("DELETE FROM `private` WHERE `id` = '".f6($_POST['deletemess'])."'"); 
 }
-
+//добавление сообщения
 if(isset($_POST['message']) and $_POST['message']!=''){
     dbq(
         "INSERT INTO `private` SET `login` = '".f6($_SESSION['username'])."',
@@ -16,18 +16,20 @@ if(isset($_POST['message']) and $_POST['message']!=''){
         `date` = NOW() "
     );  
 }
-
+//обновлние статуса пользователя
 dbq("UPDATE `users` SET `datechat` = NOW() WHERE `login` = '".f6($_SESSION['username'])."'");
-
+//подсчет записей(для авто скроллинга)
  $count = dbq("SELECT COUNT(`id`) FROM `private` "); 
  $num =  $count[0]['COUNT(`id`)'];
 
 if(isset($_POST['count'])){
     $loadnum = ($num > $_POST['count']) ? $_POST['count'] : $num-1;
+    //колличество записей в таблице `private`
     $count = dbq("SELECT COUNT(`id`) FROM `private` ");
+    //запрос, с помощью которого определяется, кто может видеть отправленные сообщения в приватном чате
     $a = dbq("SELECT * FROM `private` WHERE (`reciever` =  '".f6($_POST['whereto'])."' AND `login` = '".f6($_SESSION['username'])."') OR (`reciever` =  '".f6($_SESSION['username'])."' AND `login` = '".f6($_POST['whereto'])."') LIMIT ".($num-$loadnum).", ".$loadnum);
 } 
-
+//
 $b  = dbq("SELECT `login`, `datechat`, UNIX_TIMESTAMP(datechat) FROM `users`");
 foreach ($a as &$message){
     foreach ($b as $user){
