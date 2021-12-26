@@ -28,7 +28,7 @@ if(isset($_POST['count'])){
     //выгрузка сообщений общего чата
     $a = dbq("SELECT * FROM `message` LIMIT ".($num-$loadnum).", ".$loadnum);
 } 
-//сравнивание даты отправки последнего сообщния с последней активностью пользователя на сайте для опрееделения статуса онлайн
+//сравнивание unix timestamp в момент когда пользователь находился на сайте с обычным unix time для определения разницы в секундах и установлению корректоного статуса
 $b  = dbq("SELECT `login`, `datechat`, UNIX_TIMESTAMP(datechat) FROM `users`");
 foreach ($a as &$message){
     foreach ($b as $user){
