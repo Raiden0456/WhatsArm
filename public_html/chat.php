@@ -10,6 +10,7 @@ if(!isset($_SESSION['username'])){
 	header('Location: chatreg.php?auto');
 	exit;
 }
+//hello teesting this git bruh
 ?>
 <!DOCTYPE>
 <html>
