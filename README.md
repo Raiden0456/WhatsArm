@@ -1,4 +1,4 @@
-# WhatsArm
+# WhatsArm (first project ever)
 My simple web messenger.
 The messenger frontend is made on JavaScript, HTML, CSS.
 Backend is wrtitten using a PhP.
